@@ -13,7 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/background_top.jpg"),
+          image: AssetImage("assets/back.png"),
           fit: BoxFit.fill,
         ),
       ),

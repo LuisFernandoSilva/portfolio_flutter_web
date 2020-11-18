@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
       height: MediaQuery.of(context).size.height - 180, //altura padrao
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/background_top.jpg"),
+          image: AssetImage("assets/back.png"),
           fit: BoxFit.fill,
         ),
       ),

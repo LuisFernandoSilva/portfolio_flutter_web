@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:portfolio_flutter_web/pages/contact/contact_page.dart';
 import 'package:portfolio_flutter_web/pages/home/home_page.dart';
 import 'package:portfolio_flutter_web/pages/profile/profile.dart';
+import 'package:portfolio_flutter_web/utils/theme.dart';
 
 import 'utils/translation_tags.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: myTheme,
       debugShowCheckedModeBanner: false,
       translations: TagsTranslation(),
       locale: ui.window.locale,

@@ -2,7 +2,9 @@
 
 A new Flutter project.
 
-## Getting Started
+## Assets
+Imagem usada como background by Christopher Gower on Unsplash.
+Icons made by "https://br.flaticon.com/autores/freepik", demais icones usados tambem do mesmo site e não do mesmo autor.
 
 This project is a starting point for a Flutter application.
 

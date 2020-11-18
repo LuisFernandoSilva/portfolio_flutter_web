@@ -20,7 +20,7 @@ class ContactPage extends StatelessWidget {
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/background_top.jpg"),
+          image: AssetImage("assets/back.png"),
           fit: BoxFit.fill,
         ),
       ),

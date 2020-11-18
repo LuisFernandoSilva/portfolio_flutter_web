@@ -2,117 +2,96 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/pages/contact/contact_page.dart';
 import 'package:portfolio_flutter_web/pages/home/screen_view/home_screen.dart';
 import 'package:portfolio_flutter_web/pages/profile/profile.dart';
+import 'package:vertical_navigation_bar/vertical_navigation_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var tabIndex = 0;
+
+  final pageController = PageController(initialPage: 0, keepPage: true);
+
+  final navItems = [
+    SideNavigationItem(icon: Icons.home, title: "Home"),
+    SideNavigationItem(icon: Icons.group_work, title: "Time"),
+    SideNavigationItem(icon: Icons.contacts, title: "Contato"),
+  ];
+  final initialTab = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            actions: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/brasil.png',
-                      height: 60,
-                      width: 60,
-                    ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/usa.png',
-                      height: 60,
-                      width: 60,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ],
-            title: Row(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Luis Fernando'),
+          elevation: 0,
+          //backgroundColor: Color(0xFF5b2999).withOpacity(.8),
+          actions: [
+            Row(
               children: [
-                Image.asset(
-                  'assets/icone_3lSoft.png',
-                  height: 60,
-                  width: 60,
-                ),
-                Text(
-                  '3L Softwares',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                    decorationStyle: TextDecorationStyle.wavy,
+                IconButton(
+                  icon: Image.asset(
+                    'assets/brasil.png',
+                    height: 60,
+                    width: 60,
                   ),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Image.asset(
+                    'assets/usa.png',
+                    height: 60,
+                    width: 60,
+                  ),
+                  onPressed: () {},
                 ),
               ],
             ),
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/tab_bar.png"),
-                  fit: BoxFit.fill,
-                ),
+          ],
+        ),
+        body: Row(
+          children: <Widget>[
+            SideNavigation(
+              navItems: this.navItems,
+              itemSelected: (index) {
+                pageController.animateToPage(index,
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.linear);
+              },
+              initialIndex: 0,
+              actions: <Widget>[],
+            ),
+            Expanded(
+              child: PageView.builder(
+                itemCount: 3,
+                controller: pageController,
+                scrollDirection: Axis.vertical,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  if (index == 0) {
+                    return HomeScreen();
+                  }
+                  if (index == 1) {
+                    return ProfilePage();
+                  }
+                  if (index == 2) {
+                    return ContactPage();
+                  }
+                },
               ),
-            ),
-            bottom: TabBar(
-              tabs: <Widget>[
-                Tab(
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.home, color: Colors.white),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Text('Home', style: TextStyle(color: Colors.white)),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.group_work, color: Colors.white),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Text('Time', style: TextStyle(color: Colors.white)),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Row(
-                    children: <Widget>[
-                      Icon(Icons.contacts, color: Colors.white),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Text('Contate nos',
-                          style: TextStyle(color: Colors.white)),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          body: PageView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    HomeScreen(),
-                    ProfilePage(),
-                    ContactPage(),
-                  ],
-                ),
-              );
-            },
-          ),
+            )
+          ],
         ),
       ),
     );
+  }
+
+  Widget _screens() {
+    HomeScreen();
+    ProfilePage();
+    ContactPage();
   }
 }
