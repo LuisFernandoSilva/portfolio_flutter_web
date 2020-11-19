@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 final ThemeData myTheme = ThemeData(
+  fontFamily: 'OpenSans',
   primarySwatch: MaterialColor(4284952977, {
     50: Color(0xfff3ecf9),
     100: Color(0xffe7d9f2),

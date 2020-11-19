@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:portfolio_flutter_web/components/default_background.dart';
 import 'package:portfolio_flutter_web/pages/home/components/CardHomeDefault.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height - 180, //altura padrao
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/back.png"),
-          fit: BoxFit.fill,
-        ),
-      ),
-
+    return DefaultBackground(
+      image: "assets/back_1.png",
       child: Swiper(
         fade: 1.0,
         itemBuilder: (BuildContext context, int index) {

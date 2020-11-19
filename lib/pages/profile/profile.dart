@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter_web/components/default_background.dart';
 import 'package:portfolio_flutter_web/pages/profile/components/card_default.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -9,14 +10,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.centerLeft,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/back.png"),
-          fit: BoxFit.fill,
-        ),
-      ),
+    return DefaultBackground(
+      image: 'assets/back_2.png',
       child: SingleChildScrollView(
         child: Row(
           children: [
@@ -34,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
               flex: 20,
               child: CardProfileDefault(
                 index: 1,
-                urlImage: "assets/photo_lucas.jpg",
+                urlImage: "assets/photo_luis.jpg",
                 name: 'Lucas Almeida - CoFundador',
                 description:
                     'Nascido em Porto Alegre - RS, Tem a busca pelo inovação desde criança, e na area de TI a chance de implementar essa paixão, com foco no desenvolvimento mobile na tecnologia Flutter, desenvolvida pela google que cresce cada vez mais no mercado, juntou ao seus colegas de ideias para o nascimento dessa empresa.',

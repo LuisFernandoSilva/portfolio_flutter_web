@@ -1,17 +1,23 @@
-# portfolio_flutter_web
+# Portifolio web flutter
 
-A new Flutter project.
+
 
 ## Assets
-Imagem usada como background by Christopher Gower on Unsplash.
-Icons made by "https://br.flaticon.com/autores/freepik", demais icones usados tambem do mesmo site e não do mesmo autor.
+- [Imagem usada como background by Christopher Gower on Unsplash](https://unsplash.com/s/photos)
+- [Imagem usada como background by possessedphotography on Unsplash](https://unsplash.com/s/photos/future?utm_source=unsplas)
+- [Imagem usada como background by cookiethepom on Unsplash](https://unsplash.com/s/photos/computer?utm_source=unsplash)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+- [Icons made by freepik](https://br.flaticon.com/autores/freepik)
+- [Icons made by pixel-perfect](https://www.flaticon.com/br/autores/pixel-perfect)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+
+
+
+
+
+
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,

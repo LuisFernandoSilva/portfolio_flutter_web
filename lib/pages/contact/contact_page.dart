@@ -1,87 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mailto/mailto.dart';
+import 'package:portfolio_flutter_web/components/default_background.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const urlTelegram = 'https://t.me/L_u_i_s_F';
+    const urlLinkedin =
+        'https://www.linkedin.com/in/luis-fernando-06222b1b5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2NuLGreFShGqrHH5pMOUZw%3D%3D';
+    const urlGitHub = 'https://github.com/LuisFernandoSilva';
+
     Future<void> launchMailto() async {
       final mailtoLink = Mailto(
-        to: ['softwares.3l.development@gmail.com'],
-        subject: 'Contato para um projeto[diga aqui o nome da sua empresa]',
+        to: ['l.fernandodasilva@gmail.com'],
+        subject: 'Contato para um Oferta de emprego',
         body:
-            'Nos explique seu projeto, para que podermos ajudar da melhor forma possivel!',
+            'Ola! Obrigado por entrar em contato, poderia se possivel me explicar sua oferta de emprego?!',
       );
 
       await launch('$mailtoLink');
     }
 
-    return Container(
-      alignment: Alignment.centerLeft,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/back.png"),
-          fit: BoxFit.fill,
-        ),
-      ),
+    Future<void> openUrl(String url) async {
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+
+    return DefaultBackground(
+      image: 'assets/back_3.png',
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 190),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Entre Contato.',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
-                textAlign: TextAlign.left,
-              ),
+          Center(
+            child: Text(
+              'Entre em contato comigo pelo:',
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Center(
-              child: Text(
-                'Para fazer seu projeto, nos contate para preparar seu orçamento e conversar sobre a viabilidade de seu projeto mobile, da seguinte forma:',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-                softWrap: true,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 180),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: FlatButton.icon(
-                icon: Icon(
-                  Icons.email,
-                  color: Colors.white,
-                ),
-                label: Text(
-                  'Mande seu E-mail para : softwares.3l.development@gmail.com',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+          Container(
+            width: Get.width * .2,
+            child: Card(
+              elevation: 8,
+              color: Colors.white10,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 20,
+                    child: IconButton(
+                      icon: Image.asset('assets/linkedin.png'),
+                      onPressed: () {
+                        openUrl(urlLinkedin);
+                      },
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  launchMailto();
-                },
+                  Expanded(
+                    flex: 20,
+                    child: IconButton(
+                      icon: Image.asset('assets/telegrama.png'),
+                      onPressed: () {
+                        openUrl(urlTelegram);
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 20,
+                    child: IconButton(
+                      icon: Image.asset('assets/github.png'),
+                      onPressed: () {
+                        openUrl(urlGitHub);
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    flex: 20,
+                    child: IconButton(
+                      icon: Image.asset('assets/enviar.png'),
+                      onPressed: () {
+                        launchMailto();
+                      },
+                    ),
+                  )
+                ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
