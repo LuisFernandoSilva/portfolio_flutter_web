@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter_web/pages/contact/contact_page.dart';
-import 'package:portfolio_flutter_web/pages/home/screen_view/home_screen.dart';
+import 'package:portfolio_flutter_web/pages/home/screen_view/project_screen.dart';
 import 'package:portfolio_flutter_web/pages/profile/profile.dart';
 import 'package:vertical_navigation_bar/vertical_navigation_bar.dart';
 
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   final navItems = [
     SideNavigationItem(icon: Icons.home, title: "Home"),
-    SideNavigationItem(icon: Icons.group_work, title: "Time"),
+    SideNavigationItem(icon: Icons.work, title: "Projetos"),
     SideNavigationItem(icon: Icons.contacts, title: "Contato"),
   ];
   final initialTab = 0;
@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text('Luis Fernando'),
           elevation: 0,
-          //backgroundColor: Color(0xFF5b2999).withOpacity(.8),
           actions: [
             Row(
               children: [
@@ -72,14 +71,15 @@ class _HomePageState extends State<HomePage> {
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   if (index == 0) {
-                    return HomeScreen();
+                    return ProfilePage();
                   }
                   if (index == 1) {
-                    return ProfilePage();
+                    return ProjectScreen();
                   }
                   if (index == 2) {
                     return ContactPage();
                   }
+                  return CircularProgressIndicator();
                 },
               ),
             )
@@ -87,11 +87,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  Widget _screens() {
-    HomeScreen();
-    ProfilePage();
-    ContactPage();
   }
 }

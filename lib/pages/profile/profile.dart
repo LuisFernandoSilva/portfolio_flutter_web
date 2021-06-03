@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio_flutter_web/components/default_background.dart';
 import 'package:portfolio_flutter_web/pages/profile/components/card_default.dart';
 
@@ -13,36 +14,64 @@ class _ProfilePageState extends State<ProfilePage> {
     return DefaultBackground(
       image: 'assets/back_2.png',
       child: SingleChildScrollView(
-        child: Row(
+        child: Column(
           children: [
-            Expanded(
-              flex: 20,
-              child: CardProfileDefault(
-                index: 0,
-                urlImage: "assets/photo_luis.jpg",
-                name: 'Luis Fernando - CoFundador',
-                description:
-                    'Nascido em Porto Alegre - RS, Tem a busca pelo inovação uma meta desde criança, e na area de TI tem a chance de implementar essa paixão, com foco no desenvolvimento mobile na tecnologia Flutter, desenvolvida pela google que cresce cada vez mais no mercado, juntou ao seus colegas de ideias para o nascimento dessa empresa.',
-              ),
+            CardProfileDefault(
+              index: 0,
+              urlImage: "assets/my_photo.png",
+              name: 'Estudante de Programação',
+              description:
+                  'Nascido em Porto Alegre, RS - Residindo atualmente em Novo Hamburgo no mesmo estado. Aonde curso Análise de Sistemas de Informação na Ftec faculdades integradas.Mesmo sendo todas as minhas experiências anteriores e inclusive o meu emprego atual não tendo relação com a área de T.I, e sendo este o meu desejo o de ter essa nova experiência conseguindo assim começar meu caminho nesta área, que descobri de forma tardia, ser a escolha da qual eu me sinto mais atraído profissionalmente e pessoalmente. Atualmente me entusiasmando em aprender a desenvolver aplicações mobile pelo Flutter, além de novas engines para o desenvolvimento de jogos sendo a Godot a que estou aprendendo a desenvolver.',
             ),
-            Expanded(
-              flex: 20,
-              child: CardProfileDefault(
-                index: 1,
-                urlImage: "assets/photo_luis.jpg",
-                name: 'Lucas Almeida - CoFundador',
-                description:
-                    'Nascido em Porto Alegre - RS, Tem a busca pelo inovação desde criança, e na area de TI a chance de implementar essa paixão, com foco no desenvolvimento mobile na tecnologia Flutter, desenvolvida pela google que cresce cada vez mais no mercado, juntou ao seus colegas de ideias para o nascimento dessa empresa.',
-              ),
+            SizedBox(
+              height: 20,
             ),
-            Expanded(
-              flex: 20,
-              child: CardProfileDefault(
-                index: 2,
-                urlImage: "assets/photo_luis.jpg",
-                name: 'Luis Eduardo- CoFundador',
-                description:
-                    'Nascido em Porto Alegre - RS, Tem a busca pelo inovação desde criança, e na area de TI a chance de implementar essa paixão, com foco no desenvolvimento mobile na tecnologia Flutter, desenvolvida pela google que cresce cada vez mais no mercado, juntou ao seus colegas de ideias para o nascimento dessa empresa.',
+            SizedBox(
+              width: Get.width * .5,
+              child: Card(
+                margin: const EdgeInsets.all(16),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16)),
+                elevation: 8,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Conhecimentos basicos:',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Image.asset(
+                              'assets/flutter.png',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Image.asset(
+                              'assets/godot.png',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Image.asset(
+                              'assets/Java.png',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],

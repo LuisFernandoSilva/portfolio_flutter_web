@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardProfileDefault extends StatelessWidget {
   final String urlImage;
@@ -15,7 +16,7 @@ class CardProfileDefault extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: SizedBox(
-        width: 400,
+        width: Get.width * .5,
         child: Card(
           margin: const EdgeInsets.all(16),
           shape:
@@ -30,7 +31,10 @@ class CardProfileDefault extends StatelessWidget {
                   urlImage,
                 ),
                 ListTile(
-                  title: Text(name),
+                  title: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(name),
+                  ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

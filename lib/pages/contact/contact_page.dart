@@ -40,7 +40,10 @@ class ContactPage extends StatelessWidget {
           Center(
             child: Text(
               'Entre em contato comigo pelo:',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 20,
+              ),
             ),
           ),
           Container(
